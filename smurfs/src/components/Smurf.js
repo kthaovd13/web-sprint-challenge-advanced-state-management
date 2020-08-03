@@ -3,7 +3,7 @@ import React from 'react'
 const Smurf = props => {
     return (
         <div>
-            <h3>{props.smurf}</h3>
+            <h3>{props.name}</h3>
         </div>
     )
 };
