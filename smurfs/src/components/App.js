@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import "./App.css";
 import SmurfForm from './SmurfForm'
 import SmurfData from './SmurfData'
-//import SmurfList from './SmurfList'
-import { getSmurfData } from '../actions/actions'
+import { getSmurfData, addNewSmurf } from '../actions/actions'
 
 import { connect } from 'react-redux'
+
 
 
 class App extends Component {
@@ -13,9 +13,9 @@ class App extends Component {
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
-        <SmurfForm />
-        <SmurfData />
-        
+        <SmurfForm getSmurfData={getSmurfData}/>
+        {/* <SmurfList /> */}
+        <SmurfData addNewSmurf={addNewSmurf}/>
       </div>
     );
   }
@@ -23,11 +23,11 @@ class App extends Component {
 
 const mapsStateToProps = state => {
   return {
-    smurf: state.smurf
+    smurfs: state.smurfs
   }
 }
 
 export default connect(
   mapsStateToProps,
-  {getSmurfData}
+  { getSmurfData, addNewSmurf }
   )(App);

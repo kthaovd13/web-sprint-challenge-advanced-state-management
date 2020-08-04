@@ -9,17 +9,25 @@ const SmurfData = props => {
 
     return (
         <>
-            <button>List of Smurfs</button>
-            {props.smurf.map(smurfs => (
-            <div>{smurfs.name}</div>
-            ))}
+            <button onClick={() => props.getSmurfData()}>List of Smurfs</button>
+            {props.smurfs.map(smurf => {
+                return  <div key="smurf.id">
+                            <div>Name: {smurf.name}</div>
+                            <div>Age: {smurf.age}</div>
+                            <div>Height: {smurf.height}</div>
+                            <div>Id: {smurf.id}</div>
+                        </div>
+            })}
         </>
     )
 };
 
 const mapStateToProps = state => {
     return {
-        smurf: state.smurf,
+        smurfs: state.smurfs,
+        age: state.age,
+        height: state.height,
+        id: state.id,
         isFetching: state.isFetching,
         error: state.error
     }
