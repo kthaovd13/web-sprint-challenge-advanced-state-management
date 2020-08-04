@@ -4,7 +4,7 @@ import { addNewSmurf } from '../actions/actions'
 
 
     const SmurfForm = props => {
-    console.log('new', props)
+    //console.log('new', props)
     const [newSmurf, setNewSmurf] = useState({name: '', age:'', height: ''});
     
     const submitNewSmurf = e => {
@@ -53,7 +53,7 @@ import { addNewSmurf } from '../actions/actions'
                     />
                 </label>
             </form>
-            <button type="submit">Add New Smurf</button>
+            <button type="submit" onClick={submitNewSmurf} >Add New Smurf</button>
         </div>
     )
 };
